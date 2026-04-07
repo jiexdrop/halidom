@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bxicponlcogpr"]
+
+[ext_resource type="Texture2D" uid="uid://js54ltsqjgs8" path="res://images/bg.png" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dak064opvnqsd" path="res://images/tree.png" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://dpdxdxeqixwj5" path="res://images/tree_2.png" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://ctgj05s4j5os8" path="res://images/hero.png" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://b8fq74v61gmsg" path="res://scripts/player.gd" id="4_tbgi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
+size = Vector2(160, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(14, 31)
+
+[node name="Main" type="Node2D" unique_id=1650929999]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=262967531]
+position = Vector2(80, 60)
+texture = ExtResource("1_sugp2")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1558791410]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=375419936]
+position = Vector2(80, 110)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="Tree" type="Sprite2D" parent="." unique_id=1008793278]
+position = Vector2(134, 66)
+texture = ExtResource("2_0wfyh")
+
+[node name="Tree2" type="Sprite2D" parent="." unique_id=1767492897]
+position = Vector2(15, 66)
+texture = ExtResource("2_0wfyh")
+
+[node name="Tree3" type="Sprite2D" parent="." unique_id=1285523592]
+position = Vector2(118, 69)
+texture = ExtResource("3_sugp2")
+
+[node name="Tree4" type="Sprite2D" parent="." unique_id=1091559907]
+position = Vector2(150, 70)
+texture = ExtResource("3_sugp2")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1651818988]
+position = Vector2(80, 80)
+script = ExtResource("4_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=580944326]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_sugp2")
+
+[node name="Hero" type="Sprite2D" parent="Player" unique_id=1156077078]
+texture = ExtResource("4_jyhfs")
