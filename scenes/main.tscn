@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://bxicponlcogpr"]
 
 [ext_resource type="Texture2D" uid="uid://js54ltsqjgs8" path="res://images/bg.png" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://dwkc74yts8h0p" path="res://scenes/main.gd" id="1_tipki"]
 [ext_resource type="Texture2D" uid="uid://dak064opvnqsd" path="res://images/tree.png" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://dpdxdxeqixwj5" path="res://images/tree_2.png" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://ctgj05s4j5os8" path="res://images/hero.png" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://rquxymprvyi8" path="res://images/father/father_default.png" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://b8fq74v61gmsg" path="res://scripts/player.gd" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dn15tv12rqgmu" path="res://images/mother/mother_default.png" id="5_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
 size = Vector2(160, 20)
@@ -12,7 +15,10 @@ size = Vector2(160, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(14, 31)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+
 [node name="Main" type="Node2D" unique_id=1650929999]
+script = ExtResource("1_tipki")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=262967531]
 position = Vector2(80, 60)
@@ -40,8 +46,16 @@ texture = ExtResource("3_sugp2")
 position = Vector2(150, 70)
 texture = ExtResource("3_sugp2")
 
+[node name="Father" type="Sprite2D" parent="." unique_id=2021799979]
+position = Vector2(62, 82)
+texture = ExtResource("4_o6xl0")
+
+[node name="Mother" type="Sprite2D" parent="." unique_id=331893319]
+position = Vector2(97, 82)
+texture = ExtResource("5_tipki")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1651818988]
-position = Vector2(80, 80)
+position = Vector2(17, 84)
 script = ExtResource("4_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=580944326]
@@ -50,3 +64,11 @@ shape = SubResource("RectangleShape2D_sugp2")
 
 [node name="Hero" type="Sprite2D" parent="Player" unique_id=1156077078]
 texture = ExtResource("4_jyhfs")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1698339131]
+position = Vector2(80, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=100419099]
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
