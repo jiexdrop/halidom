@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://d21muhalxo6hb"]
 
+[ext_resource type="Texture2D" uid="uid://c1kntmebrge07" path="res://images/school/bg.png" id="1_3bmlt"]
+
 [node name="Level2" type="Node2D" unique_id=1907783232]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=947760058]
+position = Vector2(80, 60)
+texture = ExtResource("1_3bmlt")
