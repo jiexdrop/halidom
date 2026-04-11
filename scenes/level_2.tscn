@@ -1,9 +1,68 @@
 [gd_scene format=3 uid="uid://d21muhalxo6hb"]
 
 [ext_resource type="Texture2D" uid="uid://c1kntmebrge07" path="res://images/school/bg.png" id="1_3bmlt"]
+[ext_resource type="Script" uid="uid://brehncw472et4" path="res://scripts/level_2.gd" id="1_6cvei"]
+[ext_resource type="Texture2D" uid="uid://cqserhi4sgdt" path="res://images/school/teacher.png" id="2_eqxsl"]
+[ext_resource type="Texture2D" uid="uid://bkha51405nci3" path="res://images/school/tables.png" id="3_b4j7a"]
+[ext_resource type="Texture2D" uid="uid://b76ftjdwu5ckk" path="res://images/school/hero_sit.png" id="4_wo48x"]
+[ext_resource type="Texture2D" uid="uid://caq18t1ow2h47" path="res://images/school/chair_l.png" id="5_y0kc7"]
+[ext_resource type="Texture2D" uid="uid://bd1ixuf0a1hl2" path="res://images/school/chair_r.png" id="6_ne2mo"]
+[ext_resource type="Script" uid="uid://clwtiavtp5wly" path="res://scripts/player_level_2.gd" id="7_ne2mo"]
+[ext_resource type="Texture2D" uid="uid://ctgj05s4j5os8" path="res://images/hero.png" id="8_6cvei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_que50"]
+size = Vector2(14, 31)
 
 [node name="Level2" type="Node2D" unique_id=1907783232]
+y_sort_enabled = true
+script = ExtResource("1_6cvei")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=947760058]
-position = Vector2(80, 60)
+position = Vector2(79, 0)
 texture = ExtResource("1_3bmlt")
+offset = Vector2(1, 60)
+
+[node name="Teacher" type="Sprite2D" parent="." unique_id=1229383641]
+position = Vector2(105, 62)
+texture = ExtResource("2_eqxsl")
+
+[node name="Tables" type="Sprite2D" parent="." unique_id=2089177476]
+position = Vector2(77, 77)
+texture = ExtResource("3_b4j7a")
+offset = Vector2(0, 8)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1783553562]
+position = Vector2(123, 87)
+script = ExtResource("7_ne2mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=42934115]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_que50")
+
+[node name="Hero" type="Sprite2D" parent="Player" unique_id=1974347348]
+y_sort_enabled = true
+position = Vector2(0, 1)
+texture = ExtResource("8_6cvei")
+offset = Vector2(0, -1)
+
+[node name="ChairL2" type="Sprite2D" parent="." unique_id=1658670203]
+position = Vector2(124, 97)
+texture = ExtResource("5_y0kc7")
+offset = Vector2(0, -1)
+
+[node name="HeroSit" type="Sprite2D" parent="." unique_id=1942667436]
+position = Vector2(125, 106)
+texture = ExtResource("4_wo48x")
+offset = Vector2(-1, -16)
+
+[node name="ChairL" type="Sprite2D" parent="." unique_id=1960478049]
+position = Vector2(95, 88)
+texture = ExtResource("5_y0kc7")
+offset = Vector2(-2, 8)
+
+[node name="ChairR" type="Sprite2D" parent="." unique_id=1828101404]
+position = Vector2(32, 87)
+texture = ExtResource("6_ne2mo")
+offset = Vector2(1, 9)
+
+[connection signal="on_move" from="Player" to="." method="_on_player_on_move"]
