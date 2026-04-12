@@ -9,9 +9,57 @@
 [ext_resource type="Texture2D" uid="uid://bd1ixuf0a1hl2" path="res://images/school/chair_r.png" id="6_ne2mo"]
 [ext_resource type="Script" uid="uid://clwtiavtp5wly" path="res://scripts/player_level_2.gd" id="7_ne2mo"]
 [ext_resource type="Texture2D" uid="uid://ctgj05s4j5os8" path="res://images/hero.png" id="8_6cvei"]
+[ext_resource type="Script" uid="uid://cg7kof2aoesku" path="res://scripts/door.gd" id="10_hey2k"]
+[ext_resource type="Texture2D" uid="uid://bp4u21cg3g3tx" path="res://images/school/door.png" id="10_que50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_que50"]
 size = Vector2(14, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hey2k"]
+atlas = ExtResource("10_que50")
+region = Rect2(0, 0, 21, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_172wr"]
+atlas = ExtResource("10_que50")
+region = Rect2(21, 0, 21, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2hoc"]
+atlas = ExtResource("10_que50")
+region = Rect2(42, 0, 21, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fldb1"]
+atlas = ExtResource("10_que50")
+region = Rect2(63, 0, 21, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guvtl"]
+atlas = ExtResource("10_que50")
+region = Rect2(84, 0, 21, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cvei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hey2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_172wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2hoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fldb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guvtl")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hey2k"]
+size = Vector2(20, 47)
 
 [node name="Level2" type="Node2D" unique_id=1907783232]
 y_sort_enabled = true
@@ -65,4 +113,18 @@ position = Vector2(32, 87)
 texture = ExtResource("6_ne2mo")
 offset = Vector2(1, 9)
 
+[node name="Door" type="Area2D" parent="." unique_id=144220437]
+position = Vector2(44, 62)
+script = ExtResource("10_hey2k")
+
+[node name="Door" type="AnimatedSprite2D" parent="Door" unique_id=830864419]
+position = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6cvei")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=2053682672]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hey2k")
+
 [connection signal="on_move" from="Player" to="." method="_on_player_on_move"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

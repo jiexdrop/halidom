@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dn15tv12rqgmu" path="res://images/mother/mother_default.png" id="5_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
-size = Vector2(160, 20)
+size = Vector2(223, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(14, 31)
@@ -27,7 +27,7 @@ texture = ExtResource("1_sugp2")
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1558791410]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=375419936]
-position = Vector2(80, 110)
+position = Vector2(78.5, 110)
 shape = SubResource("RectangleShape2D_tbgi4")
 
 [node name="Tree" type="Sprite2D" parent="." unique_id=1008793278]
@@ -55,7 +55,7 @@ position = Vector2(97, 82)
 texture = ExtResource("5_tipki")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1651818988]
-position = Vector2(17, 84)
+position = Vector2(-19, 84)
 script = ExtResource("4_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=580944326]

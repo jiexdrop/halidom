@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cgqv03nrspjbr"]
+
+[ext_resource type="Texture2D" uid="uid://bdsocqrral1el" path="res://images/park/bg.png" id="1_70nk6"]
+[ext_resource type="Script" uid="uid://clwtiavtp5wly" path="res://scripts/player_level_2.gd" id="2_uwxec"]
+[ext_resource type="Texture2D" uid="uid://ctgj05s4j5os8" path="res://images/hero.png" id="3_1pn4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah8om"]
+size = Vector2(14, 31)
+
+[node name="Level3" type="Node2D" unique_id=1311936347]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1160784497]
+position = Vector2(79, 0)
+texture = ExtResource("1_70nk6")
+offset = Vector2(1, 60)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=800236105]
+position = Vector2(168, 61)
+script = ExtResource("2_uwxec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1787920862]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ah8om")
+
+[node name="Hero" type="Sprite2D" parent="Player" unique_id=1636334076]
+y_sort_enabled = true
+position = Vector2(0, 1)
+texture = ExtResource("3_1pn4d")
+offset = Vector2(0, -1)
